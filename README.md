@@ -2,7 +2,7 @@
 Drawing software for homemade GRBL based drawing robots. 
 
 This is a side project that I add to as I play with my drawing robot.
-You can build your own drawing robot using 3D printed parts and the numerous online guides.
+You can build your own drawing robot using 3D printed parts and one of the many online guides.
 My robot is based on the design found here:
 https://www.thingiverse.com/thing:4960672
 
