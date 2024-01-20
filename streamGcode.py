@@ -3,6 +3,9 @@ import time
 from tkinter import Tk
 from tkinter.filedialog import askopenfilename
 
+maxX = 0
+maxY = 0
+
 
 def streamFile(filename):
     # Open grbl serial port ==> CHANGE THIS BELOW TO MATCH YOUR USB LOCATION
@@ -29,3 +32,16 @@ def streamFile(filename):
     # Close file and serial port
     f.close()
     s.close()
+
+
+def home():
+    s = serial.Serial('COM4',115200)
+    s.write("\r\n\r\n".encode())
+    time.sleep(2)   # Wait for grbl to initialize
+    s.flushInput()  # Flush startup text in serial input
+   
+    s.write(('#H' + '\n').encode()) # Send g-code block to grbl
+    grbl_out = s.readline() # Wait for grbl response with carriage return
+    print (' : ' + grbl_out.strip().decode())
+
+
